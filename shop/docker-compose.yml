@@ -1,0 +1,53 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - 3tierapp
+
+    healthcheck:
+      test: ["CMD-SHELL", "mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute='SELECT 1;'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  3-tier-app:
+    build: .
+    container_name: 3-tier-app
+
+    environment:
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_NAME: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: "3000"
+
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+    networks:
+      - 3tierapp
+
+networks:
+  3tierapp:
+    driver: bridge
+
+volumes:
+  mysql_data:
