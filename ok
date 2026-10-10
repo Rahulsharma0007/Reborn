@@ -1,0 +1,19 @@
+CICD
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Sat Oct 10 07:11:57 2026 +0000
+#
+# interactive rebase in progress; onto 7c109cd
+# Last command done (1 command done):
+#    pick a4e7264 # CICD
+# No commands remaining.
+# You are currently editing a commit while rebasing branch 'master' on '7c109cd'.
+#
+# Changes to be committed:
+#	modified:   .github/workflows/cicd.yml
+#
+# Untracked files:
+#	readme.md
+#

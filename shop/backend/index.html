@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hearth & Hand — Everyday goods</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<header><h1>Hearth &amp; Hand</h1>
+<nav><span id="who"></span><button id="authBtn" class="ghost">Log in</button><button id="cartBtn">Cart (<span id="count">0</span>)</button></nav></header>
+<main><p class="lede">Well-made things for the kitchen, desk and daily carry.</p><div id="grid" class="grid" aria-live="polite"></div></main>
+<aside id="cart" hidden><h2>Your cart</h2><ul id="lines"></ul><p class="total">Total: <b id="total">₹0</b></p>
+<button id="checkout">Place order</button><button class="ghost" id="closeCart">Keep shopping</button></aside>
+<dialog id="authDlg"><form method="dialog" id="authForm"><h2 id="authTitle">Log in</h2>
+<input id="aName" placeholder="Full name" autocomplete="name" hidden>
+<input id="aEmail" type="email" placeholder="Email" autocomplete="email" required>
+<input id="aPass" type="password" placeholder="Password (8+ characters)" minlength="8" autocomplete="current-password" required>
+<button>Continue</button><button type="button" class="ghost" id="switchMode">Create an account instead</button><button type="button" class="ghost" id="closeAuth">Cancel</button></form></dialog>
+<div id="toast" role="status"></div><script src="app.js"></script></body></html>

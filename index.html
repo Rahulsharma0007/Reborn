@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rahul's Cloud and DevOps Engineer portfolio — AWS, Docker, Kubernetes, Terraform, CI/CD, Linux, and automation." />
+  <title>Rahul | Cloud & DevOps Engineer</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #121a2e;
+      --surface-2: #17223a;
+      --text: #edf2ff;
+      --muted: #a8b3cc;
+      --accent: #75e0c1;
+      --accent-2: #8ca8ff;
+      --line: rgba(210, 224, 255, .13);
+      --shadow: 0 18px 55px rgba(0,0,0,.24);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: radial-gradient(ellipse at top right, #1b2b4a 0, var(--bg) 48%);
+      color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(11,16,32,.82); border-bottom: 1px solid var(--line); }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.2rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 22px; flex-wrap: wrap; color: var(--muted); font-size: .92rem; }
+    .hero { padding: 100px 0 82px; display: grid; grid-template-columns: 1.4fr .8fr; gap: 56px; align-items: center; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: .78rem; font-weight: 800; }
+    h1 { font-size: clamp(2.7rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.06em; margin: 16px 0 20px; }
+    h1 span { color: var(--accent); }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 650px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 12px; font-weight: 750; border: 1px solid var(--line); transition: transform .2s, background .2s; cursor: pointer; }
+    .btn:hover { transform: translateY(-2px); }
+    .primary { background: var(--accent); color: #082018; border-color: transparent; }
+    .primary:hover { color: #082018; background: #9af0d9; }
+    .glass-card { background: linear-gradient(145deg, rgba(23,34,58,.94), rgba(18,26,46,.9)); border: 1px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+    .terminal-top { display: flex; gap: 7px; margin-bottom: 22px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #ff7e87; }
+    .dot:nth-child(2) { background: #ffd166; } .dot:nth-child(3) { background: var(--accent); }
+    .terminal { font: .9rem/1.9 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); overflow-wrap: anywhere; }
+    .terminal .key { color: var(--accent); } .terminal .value { color: #c6d2ff; }
+    section { padding: 64px 0; }
+    .section-head { margin-bottom: 28px; max-width: 700px; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); letter-spacing: -.045em; margin: 8px 0; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: rgba(18,26,46,.8); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+    .card h3 { margin: 10px 0 8px; font-size: 1.12rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--accent); background: rgba(117,224,193,.1); font-weight: 900; }
+    .chips { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 18px; }
+    .chip { padding: 6px 10px; border: 1px solid var(--line); background: rgba(255,255,255,.025); color: #d6def4; border-radius: 999px; font-size: .82rem; }
+    .project { display: flex; flex-direction: column; min-height: 100%; }
+    .project .project-links { margin-top: auto; padding-top: 20px; display: flex; gap: 16px; color: var(--accent); font-weight: 700; font-size: .9rem; }
+    .project-label { color: var(--accent); font-size: .76rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    .timeline { border-left: 1px solid var(--line); margin-left: 7px; padding-left: 26px; }
+    .timeline-item { position: relative; padding: 0 0 28px; }
+    .timeline-item::before { content: ""; position: absolute; width: 12px; height: 12px; left: -33px; top: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(117,224,193,.12); }
+    .timeline-item h3 { margin: 0; }
+    .timeline-item .meta { color: var(--accent-2); font-size: .9rem; margin: 3px 0 9px; }
+    .timeline-item p, .timeline-item li { color: var(--muted); }
+    .timeline-item ul { padding-left: 20px; margin-bottom: 0; }
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+    .contact-card { border: 1px solid var(--line); border-radius: 20px; padding: 26px; background: var(--surface); }
+    .contact-row { padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--muted); overflow-wrap: anywhere; }
+    .contact-row:last-child { border-bottom: 0; }
+    .contact-row strong { display: block; color: var(--text); font-size: .86rem; }
+    footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: .88rem; }
+    .small-note { color: var(--muted); font-size: .85rem; margin-top: 18px; }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding-top: 68px; gap: 32px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .contact { grid-template-columns: 1fr; }
+      .nav-links { gap: 12px; font-size: .82rem; }
+    }
+    @media (max-width: 540px) {
+      .container { width: min(100% - 28px, 1120px); }
+      nav { align-items: flex-start; flex-direction: column; padding: 14px 0; gap: 10px; }
+      .nav-links { gap: 12px; }
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 48px 0; }
+      .glass-card { padding: 22px; }
+    }
+    @media print {
+      header { position: static; } body { background: white; color: #172033; }
+      .lead, .section-head p, .card p, .timeline-item p, .timeline-item li, .contact-row { color: #46516a; }
+      .glass-card, .card, .contact-card { background: white; box-shadow: none; border-color: #ddd; }
+      .actions, .project-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">Rahul<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div>
+        <div class="eyebrow">Cloud · DevOps · Automation</div>
+        <h1>Hi, I'm Rahul.<br /><span>I build reliable</span><br />cloud workflows.</h1>
+        <p class="lead">Cloud &amp; DevOps Engineer focused on AWS infrastructure, containerization, CI/CD automation, and Kubernetes deployments. I enjoy turning repeatable manual work into reliable, automated workflows.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work ↘</a>
+          <a class="btn" href="#contact">Contact me</a>
+          <button class="btn" onclick="window.print()" type="button">Save as PDF</button>
+        </div>
+      </div>
+      <div class="glass-card" aria-label="Technical profile summary">
+        <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="terminal">
+          <div><span class="key">$</span> whoami</div>
+          <div class="value">rahul / cloud-devops-engineer</div>
+          <br />
+          <div><span class="key">focus</span> = <span class="value">"automation"</span></div>
+          <div><span class="key">cloud</span> = <span class="value">"AWS"</span></div>
+          <div><span class="key">containers</span> = <span class="value">["Docker", "Kubernetes"]</span></div>
+          <div><span class="key">iac</span> = <span class="value">"Terraform"</span></div>
+          <div><span class="key">ci_cd</span> = <span class="value">["GitHub Actions", "Jenkins"]</span></div>
+          <br />
+          <div><span class="key">$</span> status</div>
+          <div class="value">Always learning. Always improving.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">A little about me</div>
+          <h2>Connecting development and operations.</h2>
+          <p>I work across cloud infrastructure, deployment automation, containers, and Linux systems. My approach is practical: understand the problem, automate what can be repeated, and make systems easier to deploy and troubleshoot.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="icon">01</div><h3>Cloud infrastructure</h3><p>Build and manage AWS resources with attention to networking, access control, availability, and monitoring.</p></article>
+          <article class="card"><div class="icon">02</div><h3>Delivery automation</h3><p>Use version control and CI/CD pipelines to build, tag, publish, and deploy application changes consistently.</p></article>
+          <article class="card"><div class="icon">03</div><h3>Containers &amp; operations</h3><p>Containerize applications and practice Kubernetes deployment, troubleshooting, and operational workflows.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Technical toolkit</div>
+          <h2>Skills &amp; technologies</h2>
+          <p>Core tools and areas relevant to my Cloud and DevOps work.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><h3>Cloud — AWS</h3><p>Cloud infrastructure and core services.</p><div class="chips"><span class="chip">EC2</span><span class="chip">VPC</span><span class="chip">IAM</span><span class="chip">S3</span><span class="chip">ALB</span><span class="chip">CloudWatch</span><span class="chip">Route 53</span><span class="chip">Auto Scaling</span><span class="chip">RDS</span><span class="chip">Lambda</span><span class="chip">Secrets Manager</span></div></article>
+          <article class="card"><h3>Containers &amp; orchestration</h3><p>Build images and deploy containerized services.</p><div class="chips"><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Kubernetes</span><span class="chip">kind</span><span class="chip">Argo CD</span></div></article>
+          <article class="card"><h3>Infrastructure as Code</h3><p>Manage infrastructure through repeatable definitions.</p><div class="chips"><span class="chip">Terraform</span><span class="chip">Ansible</span></div></article>
+          <article class="card"><h3>CI/CD &amp; version control</h3><p>Automate validation, builds, and release workflows.</p><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">Docker Hub</span></div></article>
+          <article class="card"><h3>Systems &amp; scripting</h3><p>Operate and troubleshoot Linux-based systems.</p><div class="chips"><span class="chip">Linux</span><span class="chip">Amazon Linux</span><span class="chip">RHEL</span><span class="chip">Ubuntu</span><span class="chip">Bash</span><span class="chip">Python</span><span class="chip">Windows Server</span></div></article>
+          <article class="card"><h3>Observability &amp; networking</h3><p>Monitor services and diagnose connectivity issues.</p><div class="chips"><span class="chip">CloudWatch</span><span class="chip">Prometheus</span><span class="chip">TCP/IP</span><span class="chip">DNS</span><span class="chip">HTTP/HTTPS</span><span class="chip">VPC networking</span></div></article>
+        </div>
+        <p class="small-note">Please keep only the technologies you can confidently discuss in an interview, and adjust this list to match your actual hands-on experience.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Selected projects</div>
+          <h2>Learning by building.</h2>
+          <p>Project summaries based on the hands-on work and learning path discussed. Add repository links and screenshots once your work is ready to share.</p>
+        </div>
+        <div class="grid">
+          <article class="card project">
+            <div class="project-label">Hands-on project</div><h3>Three-tier Python application</h3>
+            <p>A practice application with a frontend, Python backend, and MySQL database. The app runs locally using Docker Compose, with the goal of building a repeatable deployment path.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">MySQL</span><span class="chip">Docker Compose</span></div>
+            <div class="project-links"><a href="#contact">Add GitHub URL ↗</a></div>
+          </article>
+          <article class="card project">
+            <div class="project-label">CI/CD pipeline</div><h3>Container build &amp; publish</h3>
+            <p>Planned workflow to build a Docker image from source, tag it consistently, and publish it to Docker Hub through a CI pipeline.</p>
+            <div class="chips"><span class="chip">GitHub</span><span class="chip">GitHub Actions</span><span class="chip">Docker Hub</span></div>
+            <div class="project-links"><a href="#contact">Add pipeline link ↗</a></div>
+          </article>
+          <article class="card project">
+            <div class="project-label">Kubernetes / GitOps</div><h3>Deploy with kind &amp; Argo CD</h3>
+            <p>Planned local Kubernetes workflow to deploy the container image and practice GitOps-style updates by changing the image tag in Git.</p>
+            <div class="chips"><span class="chip">Kubernetes</span><span class="chip">kind</span><span class="chip">Argo CD</span></div>
+            <div class="project-links"><a href="#contact">Add deployment link ↗</a></div>
+          </article>
+        </div>
+        <p class="small-note">The CI/CD and GitOps items are described as planned workflows, not as completed production achievements. Update the wording as you finish each milestone.</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Experience &amp; growth</div>
+          <h2>Building a strong operations foundation.</h2>
+          <p>Use this section to present verified employment details and practical work clearly.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Cloud &amp; DevOps Engineer</h3>
+            <div class="meta">NTT DATA · Apr 2023 – Jun 2026 <span style="color:var(--muted)">· verify before publishing</span></div>
+            <ul>
+              <li>Worked across cloud and DevOps technologies including AWS, Linux, Docker, Kubernetes, Terraform, and automation tools.</li>
+              <li>Relevant focus areas include infrastructure provisioning, deployment workflows, system troubleshooting, and monitoring.</li>
+              <li>Add 2–4 specific achievements here, ideally with measurable results and the tools you personally used.</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <h3>Continuous learning &amp; hands-on practice</h3>
+            <div class="meta">Cloud-native engineering</div>
+            <p>Practicing interview scenarios and building a portfolio project to strengthen skills in Docker, Kubernetes, AWS, Terraform, Linux, Git, and observability.</p>
+          </div>
+        </div>
+        <p class="small-note">Employment dates and role details above were taken from information previously shared in resume discussions. Verify all details and claims before making this portfolio public.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact">
+        <div>
+          <div class="eyebrow">Let's connect</div>
+          <h2 style="font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.05em">Have a DevOps opportunity or project in mind?</h2>
+          <p class="lead">I'm interested in cloud infrastructure, DevOps automation, and platform engineering opportunities.</p>
+          <p class="small-note">Replace the example contact details with your real public links before sharing this page.</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-row"><strong>Email</strong><a href="mailto:your.email@example.com">your.email@example.com</a></div>
+          <div class="contact-row"><strong>LinkedIn</strong><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Add your LinkedIn profile URL ↗</a></div>
+          <div class="contact-row"><strong>GitHub</strong><a href="https://github.com/" target="_blank" rel="noreferrer">Add your GitHub profile URL ↗</a></div>
+          <div class="contact-row"><strong>Location</strong>India · Open to relevant opportunities</div>
+          <button class="btn primary" style="width:100%;margin-top:18px" onclick="copyEmail()" type="button">Copy email placeholder</button>
+          <p id="copy-status" class="small-note" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>© <span id="year"></span> Rahul · Cloud &amp; DevOps Portfolio</span><a href="#home">Back to top ↑</a></div></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    function copyEmail() {
+      const email = "your.email@example.com";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          document.getElementById("copy-status").textContent = "Placeholder copied. Replace it with your real email first.";
+        }).catch(() => {
+          document.getElementById("copy-status").textContent = "Your email placeholder is: " + email;
+        });
+      } else {
+        document.getElementById("copy-status").textContent = "Your email placeholder is: " + email;
+      }
+    }
+  </script>
+</body>
+</html>
