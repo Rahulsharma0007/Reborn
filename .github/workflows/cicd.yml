@@ -20,7 +20,7 @@ jobs:
       - name: Upload Static Web Files
         uses: actions/upload-pages-artifact@v3
         with:
-          # Point this to your folder. "." means the root directory containing your index.html
+          
           path: '.'
 
       - name: Deploy to GitHub Pages
