@@ -1,6 +1,6 @@
-name: portfolio
+name: my_portfolio
 on:
-  workflow_dispatch:
+    workflow_dispatch:
 
 permissions:
   contents: read
@@ -9,7 +9,6 @@ permissions:
 
 jobs:
    deploy:
-    
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
