@@ -1,0 +1,19 @@
+name: matrix
+
+on:
+    workflow_dispatch
+
+jobs:
+    first:
+        runs_on: ubuntu_latest
+        steps:
+        - name: Checkout Source Code
+          uses: actions/checkout@v4
+        - name: Set up Python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.12'
+        - name: get the requirements
+          run: pip install -r requirements.txt
+        - name: run the app
+          run: flake8 proj/index.py
